@@ -11,7 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Purwasata">
-        <activity android:name=".ActivityDetail"></activity>
+        <activity android:name=".AlarmActivity"></activity>
+        <receiver android:name=".AlarmReceiver"
+            android:process=":remote"/>
+        <activity android:name=".ActivityDetail" />
         <activity
             android:name=".SplashScreen"
             android:theme="@style/Theme.MaterialComponents.NoActionBar">
