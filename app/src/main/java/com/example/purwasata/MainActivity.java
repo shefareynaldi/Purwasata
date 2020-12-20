@@ -5,7 +5,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Display;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -27,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerview;
     private ArrayList<WisataItem> wisataItems;
     private AdapterWisata adapterWisata;
+    private SharedPreferences sharedPreferences;
+    private String sharedPrefFile = "com.example.purwasata";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
         initView();
         wisataItems = new ArrayList<>();
         getData();
+        sharedPreferences = getSharedPreferences(sharedPrefFile, MODE_PRIVATE);
     }
 
     private void getData() {
@@ -77,5 +82,13 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
         return true;
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        SharedPreferences.Editor preferencesEditor = sharedPreferences.edit();
+        preferencesEditor.apply();
     }
 }
