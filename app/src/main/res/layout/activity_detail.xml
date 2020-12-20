@@ -1,9 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ActivityDetail">
+    android:layout_height="wrap_content"
+    tools:context=".ActivityDetail"
+    app:cardCornerRadius="10dp"
+    android:layout_margin="10dp"
+    android:layout_gravity="center">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/gambar"
+        android:adjustViewBounds="true" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/nama"
+        android:layout_below="@id/gambar"
+        android:layout_margin="10dp"
+        style="@style/TextAppearance.AppCompat.Headline"
+        android:text="Nama"
+        android:textSize="25sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/kategori"
+        android:layout_below="@id/nama"
+        android:layout_margin="10dp"
+        style="@style/TextAppearance.AppCompat.Subhead"
+        android:text="Kategori"
+        android:textSize="20dp"/>
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
